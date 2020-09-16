@@ -28,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d76c94d6e971ec3f3065a045b6cc07f0c03d29ff">
+    <link rel="stylesheet" href="/assets/css/style.css?v=53a7769f50dc8f479f2a2e1b676d783309f7858e">
   </head>
   <body>
     
@@ -44,17 +44,17 @@
     <main id="content" class="main-content" role="main">
       <link rel="stylesheet" href="assets/css/accordion.css" />
 
-<p>Blogpost to <a href="https://arxiv.org/abs/1806.07857">RUDDER: Return Decomposition for Delayed Rewards</a>.</p>
+<p>Blog post to <a href="https://arxiv.org/abs/1806.07857">RUDDER: Return Decomposition for Delayed Rewards</a>.</p>
 
-<p>Recently, tasks with delayed rewards that required model-free reinforcement learning attracted a lot of attention via complex strategy games. For example, DeepMind currently focuses on the delayed reward games Capture the flag and <a href="https://arxiv.org/abs/1708.04782v1">Starcraft</a>, whereas Microsoft is putting up the <a href="https://www.crowdai.org/challenges/marlo-2018">Marlo</a> environment, and Open AI announced its <a href="https://blog.openai.com/openai-five/">Dota 2</a> achievements. Mastering these games with delayed rewards using model-free reinforcement learning poses a great challenge and an almost insurmountable obstacle, see the excellent <a href="https://medium.com/@evanthebouncy/understanding-openai-five-16f8d177a957">Understanding OpenAI Five</a> blog. Delayed rewards are very common as they typically appear in reinforcment learning (RL) tasks with episodic or sparse rewards. They impose a fundamental problem onto learning whose solution is a <a href="http://www.incompleteideas.net/papers/Sutton-PhD-thesis.pdf">long standing challenge in RL (abstract, p. vii)</a>. For complex real-world tasks, e.g. autonomous driving or controling smart cities, appropriate models are not available and difficult to learn and, thus, only model-free reinforcement learning is feasible.</p>
+<p>Recently, tasks with <strong>delayed rewards</strong> that required <strong>model-free</strong> reinforcement learning attracted a lot of attention via complex strategy games. For example, DeepMind currently focuses on the delayed reward games <a href="https://deepmind.com/blog/article/capture-the-flag-science"><strong>Capture the flag</strong></a> and <a href="https://arxiv.org/abs/1708.04782v1"><strong>Starcraft</strong></a>, whereas Microsoft is putting up the <a href="https://www.crowdai.org/challenges/marlo-2018"><strong>Marlo</strong></a> environment, and Open AI announced its <a href="https://blog.openai.com/openai-five/"><strong>Dota 2</strong></a> achievements. Mastering these games with delayed rewards using model-free reinforcement learning poses a great challenge and an almost insurmountable obstacle, see the excellent <a href="https://medium.com/@evanthebouncy/understanding-openai-five-16f8d177a957"><strong>Understanding OpenAI Five</strong></a> blog. Delayed rewards are very common as they typically appear in reinforcment learning (RL) tasks with episodic or sparse rewards. They impose a fundamental problem onto learning whose solution is a <a href="http://www.incompleteideas.net/papers/Sutton-PhD-thesis.pdf"><strong>long standing challenge in RL (abstract, p. vii)</strong></a>. For complex real-world tasks, e.g. autonomous driving or controling smart cities, appropriate models are not available and difficult to learn and, thus, only model-free reinforcement learning is feasible.</p>
 
-<p>Via RUDDER, we introduce a novel model-free RL approach to overcome delayed reward problems. RUDDER directly and efficiently assigns credit to reward-causing state-action pairs and thereby speeds up learning in model-free reinforcement learning with delayed rewards dramatically.</p>
+<p>Via RUDDER, we introduce a novel model-free RL approach to overcome <strong>delayed reward problems</strong>. RUDDER <strong>directly and efficiently assigns credit to reward-causing state-action pairs</strong> and thereby speeds up learning in model-free reinforcement learning with delayed rewards dramatically.</p>
 
 <h1 id="the-main-idea-of-rudder">The main idea of RUDDER</h1>
 
-<p>This is a 5 min read of the main idea of RUDDER:</p>
+<p>This is a <strong>5 min read</strong> of the main idea of RUDDER:</p>
 
-<p>We propose a paradigm shift for delayed rewards and model-free reinforcement learning. A reason is that conventional methods have problems, therefore:</p>
+<p>We propose a paradigm shift for <strong>delayed rewards</strong> and <strong>model-free</strong> reinforcement learning. A reason is that conventional methods have problems, therefore:</p>
 <ol>
   <li>Do not use temporal difference (TD) since it suffers from vanishing information and leads to high
  bias, even with eligibility traces.</li>
@@ -63,9 +63,9 @@
  has to be predicted from every state-action pair. A single prediction error might hamper learning.</li>
 </ol>
 
-<p>Supervised Learning: Assume you have high reward and average reward episodes. Supervised learning identifies state-action pairs that are indicative for high rewards. We therefore want to adjust the policy such that these state-action pairs are reached more often. Reward redistribution to these state-action pairs achieves these adjustments.</p>
+<p><strong>Supervised Learning</strong>: Assume you have high reward and average reward episodes. Supervised learning identifies state-action pairs that are indicative for high rewards. We therefore want to adjust the policy such that these state-action pairs are reached more often. <strong>Reward redistribution</strong> to these state-action pairs achieves these adjustments.</p>
 
-<p>Value function is a step function: The main idea of RUDDER is to exploit the fact that the value function is a step function. Complex tasks are hierarchical with sub-tasks or sub-goals. Completing them is reflected by a step in the value function. In this sense, steps indicate events like achievements, failures, or change of environment/information. In general, a step in the value function is a change in return expectation (higher/lower amount of return or higher/lower probability to receive return). The reward is redistributed to these steps. In particular, identifying the large steps is important since they speed up learning tremendously:</p>
+<p><strong>Value function is a step function</strong>: The main idea of RUDDER is to exploit the fact that the value function is a step function. Complex tasks are hierarchical with sub-tasks or sub-goals. Completing them is reflected by a step in the value function. In this sense, steps indicate events like achievements, failures, or change of environment/information. In general, a step in the value function is a change in return expectation (higher/lower amount of return or higher/lower probability to receive return). The reward is redistributed to these steps. In particular, identifying the large steps is important since they speed up learning tremendously:</p>
 <ul>
   <li>Large increase of return (after adjusting the policy).</li>
   <li>Sampling more relevant episodes.</li>
@@ -116,7 +116,7 @@ Both getting the key and opening the door increases the probability of obtaining
 
 <p>Most <strong>classical RL methods</strong>, like temporal difference (TD) learning, Monte Carlo learning and Monte Carlo Tree Search, try to solve RL problems by estimating the return, i.e. the accumulated future reward. Therefore, they have to average over a large number of possible futures. Especially for delayed reward problems this has severe drawbacks.</p>
 
-<p>In the example task, many events lie between “deciding whether to repair” and actually selling the watch. Only the return can tell you if repairing pays off. To evaluate the decision, <strong>temporal difference (TD)</strong> learning minimizes the TD error, which comes down to propagating the rewards back. The backpropagated reward corrects the bias of the TD return estimation at previous states. Unfortunately, TD learning needs a vast number of updates to propagate the reward back, which increases exponentially with the length of the path to previous states, thus bias correction is exponetially slow. Consequently, for such problems TD approaches are not feasible. In <a href="http://www.incompleteideas.net/book/the-book.html">Sutton and Barto’s book</a>, page 297, formula 12.11, it is shown that the TD(λ)-return <strong>vanishes exponentially</strong>.</p>
+<p>In the example task, many events lie between “deciding whether to repair” and actually selling the watch. Only the return can tell you if repairing pays off. To evaluate the decision, <strong>temporal difference (TD)</strong> learning minimizes the TD error, which comes down to propagating the rewards back. The backpropagated reward corrects the bias of the TD return estimation at previous states. Unfortunately, TD learning needs a vast number of updates to propagate the reward back, which increases exponentially with the length of the path to previous states, thus bias correction is exponetially slow. Consequently, for such problems TD approaches are not feasible. In <a href="http://www.incompleteideas.net/book/the-book.html"><strong>Sutton and Barto’s book</strong></a>, page 297, formula 12.11, it is shown that the TD(λ)-return <strong>vanishes exponentially</strong>.</p>
 
 <p>​<img src="/assets/TD_problem_01.png" alt="" /></p>
 
@@ -128,15 +128,15 @@ Both getting the key and opening the door increases the probability of obtaining
           
           <p>The TD update rule is given by:</p>
 
-\[V_{new}(S_{t-1}) \leftarrow V(S_{t-1}) + \alpha \Delta V(S_{t-1}) \\
+\[V_{\text{new}}(S_{t-1}) \leftarrow V(S_{t-1}) + \alpha \Delta V(S_{t-1}) \\
  \Delta(S_{t-1}) = R_{t} + \gamma V(S_{t}) - V(S_{t-1})\]
 
 <p>where V(S) is the value function, \(S_{t-1}\) and \(S_{t}\) is the old and current state, respectively, \(R_{t}\) is the reward at time \(t, \gamma\) is the discount factor and \(\alpha\) a positive learning rate.</p>
 
-<p>In our example task, we consider a new information due to the reward \(\boldsymbol{R_T}\). I​n the following, we show how this information is propagated back to give new values. The information due to \(\boldsymbol{R_T}\) is indicated by bold symbols. At state \(S_{T-1}\), the update gives following new value \(\boldsymbol{V}_{new}\boldsymbol{(S_{T-1})}\):</p>
+<p>In our example task, we consider a new information due to the reward \(\boldsymbol{R_T}\). I​n the following, we show how this information is propagated back to give new values. The information due to \(\boldsymbol{R_T}\) is indicated by bold symbols. At state \(S_{T-1}\), the update gives following new value \(\boldsymbol{V}_{\text{new}}\boldsymbol{(S_{T-1})}\):</p>
 
-\[\boldsymbol{V}_{new}\boldsymbol{(S_{T-1})} \leftarrow V(S_{T-1}) + \alpha\boldsymbol{\Delta V}_{new}\boldsymbol{(S_{T-1})} \\
-\boldsymbol{\Delta V}_{new}\boldsymbol{(S_{T-1})} = \boldsymbol{R_T} + \gamma V(S_{T}) - V(S_{T-1}),\]
+\[\boldsymbol{V}_{\text{new}}\boldsymbol{(S_{T-1})} \leftarrow V(S_{T-1}) + \alpha\boldsymbol{\Delta V}_{\text{new}}\boldsymbol{(S_{T-1})} \\
+\boldsymbol{\Delta V}_{\text{new}}\boldsymbol{(S_{T-1})} = \boldsymbol{R_T} + \gamma V(S_{T}) - V(S_{T-1}),\]
 
 <p>Iteratively updating the values with the new information due to \(\boldsymbol{R_T}\) gives:</p>
 
@@ -150,22 +150,24 @@ Both getting the key and opening the door increases the probability of obtaining
 \qquad \qquad~~ = \Delta V(S_{T-3}) + \alpha \gamma \Delta V(S_{T-2}) + \alpha^2\gamma^2 \boldsymbol{\Delta V_{\text{new}}(S_{T-1})}~, \\
 \qquad\qquad~~~ . \\
 \qquad\qquad~~~ . \\
-\qquad\qquad ~~~ . \\
-\boldsymbol{\Delta V_{\text{new}}(S_{1})} = \Delta V(S_1) + \alpha \gamma \Delta V(S_2) + \alpha^2\gamma^2 \Delta V(S_3) +~...~+~ {\alpha^{T-1}\gamma^{T-1} \boldsymbol{\Delta V_{\text{new}}(S_{T-1})}}~.\]
+\qquad\qquad~~~ . \\
+\boldsymbol{\Delta V_{\text{new}}(S_{1})} = \Delta V(S_1) + \alpha \gamma \Delta V(S_2) + \alpha^2\gamma^2 \Delta V(S_3) +~...~+~ {\alpha^{T-1}\gamma^{T-1} \boldsymbol{\Delta V_{\text{new}}(S_{T-1})}}.\]
+
+<p>The new information has decayed with a factor \(\alpha^{T-1}\gamma^{T-1}\), which is an exponential decay with respect to the time interal \(T-1\) between \(\boldsymbol{R_T}\) and \(S_1\).</p>
 
         </div>
       </div>
     </div>
 
-<h2 id="problems-with-monte-carlo-learning">Problems with Monte Carlo learning</h2>
-<p>The decision could also be evaluated by Monte Carlo learning. Monte Carlo averages in a probabilistic environment over the returns of all possible futures, which number can be be very large. If the returns have high variance, then Monte Carlo learning is very slow. Thus Monte Carlo learning has problems with high variance, in contrast to TD.</p>
+<p>The decision could also be evaluated by <strong>Monte Carlo</strong> learning. Monte Carlo averages in a probabilistic environment over the returns of all possible futures, which number can be be very large. If the returns have high variance, then Monte Carlo learning is very slow. Thus Monte Carlo learning has problems with <strong>high variance</strong>, in contrast to TD.</p>
 
 <p>​<img src="/assets/MC_problem_01.png" alt="" /></p>
 
 <p>We conclude that for long-delayed reward tasks, both TD and TD(λ) learning are exponentially slowed down with the length of the delay. On the other hand, Monte Carlo learning has problems with high sample variance of the return, as it is typical for probabilistic environments.</p>
 
 <h1 id="zero-future-expected-rewards">Zero future expected rewards</h1>
-<p>As explained in “The main idea of RUDDER” in the introduction, we aim at a reward redistribution to the steps of the value function which tremendously simplifies learning. Therefore, RUDDER’s main goal is to construct an MDP that <strong>has expected future rewards equal to zero</strong>, in contrast to most classical RL methods. If this goal is achieved, Q-value estimation will simplify to computing the mean of the immediate rewards. In the example task, if the expected future costs (average delivery costs) are known, solving the task becomes trivial. The expected future costs can be added to the repair costs, resulting in zero future costs. As a result, you just have to average over the repair costs. For getting this average, you use your repairing experiences for this brand.</p>
+<p><img src="assets/zeroing.png" align="right" width="250" />
+As explained in “The main idea of RUDDER” in the introduction, we aim at a reward redistribution to the steps of the value function which tremendously simplifies learning. Therefore, RUDDER’s main goal is to construct an MDP that <strong>has expected future rewards equal to zero</strong>, in contrast to most classical RL methods. If this goal is achieved, Q-value estimation will simplify to computing the mean of the immediate rewards. In the example task, if the expected future costs (average delivery costs) are known, solving the task becomes trivial. The expected future costs can be added to the repair costs, resulting in zero future costs. As a result, you just have to average over the repair costs. For getting this average, you use your repairing experiences for this brand.</p>
 
 <p>Why is it advantageous having the expected future rewards equal to zero? The expected profit can be estimated easily by averaging over the immediate repairing cost since all future rewards are equal to zero. There estimation neither suffers from exponetially decaying reward propagation like TD, nor from high variance like MC learning. Since, there is no need to average over all possible trajectories (like in MC) or to propagate the delayed reward back (like in TD). Instead the expected profit is given immediately, the decision is made and no further reward is expected.</p>
 
@@ -176,10 +178,15 @@ Both getting the key and opening the door increases the probability of obtaining
 
 <p>In RUDDER, zeroing the expected future reward and redistributing the reward is mathematically endorsed by introducing the concepts of <strong>return-equivalent decision processes, reward redistribution, return decomposition and optimal reward redistribution</strong>.</p>
 
-<h1 id="more-rudder-theory">More RUDDER Theory:</h1>
-<h3 id="mdp-definitions">MDP definitions:</h3>
-<p>​
-A finite Markov decision process (MDP) \(\mathcal{P}\) is a 6-tuple \(\mathcal{P}=(\mathcal{S},\mathcal{A},\mathcal{R},p,\gamma)\):</p>
+<h1 id="rudder---more-technical">RUDDER - more technical:</h1>
+
+<div class="a-container">
+      <div class="a-items">
+        <label for="a2">MDP definitions:</label>
+        <input type="checkbox" name="sr" id="a2" hidden="" />
+        <div class="a-content">
+          
+          <p>A finite Markov decision process (MDP) \(\mathcal{P}\) is a 6-tuple \(\mathcal{P}=(\mathcal{S},\mathcal{A},\mathcal{R},p,\gamma)\):</p>
 
 <ul>
   <li>finite sets \(\mathcal{S}\)  of states \(s\) (random variable \(S_{t}\) at time \(t\))</li>
@@ -191,7 +198,7 @@ A finite Markov decision process (MDP) \(\mathcal{P}\) is a 6-tuple \(\mathca
 
 <p>The expected reward is the sum over all transition-reward distributions: </p>
 
-\[r(s,a)=\sum_r rp(r~\vert~s,a).\]
+\[r(s,a)=\sum_r rp(r~\vert~s,a) .\]
 
 <p>The return is for a finite horizon MDP with sequence length \(T\) and \(\gamma=1\) is given by</p>
 
@@ -203,13 +210,18 @@ A finite Markov decision process (MDP) \(\mathcal{P}\) is a 6-tuple \(\mathca
 
 <p>Goal of learning is to maximize the expected return at time t=0, that is</p>
 
-\[v_0^{\pi}=E_{\pi}[G_0]\]
+\[v_0^{\pi}=E_{\pi}[G_0] \ .\]
+
+
+        </div>
+      </div>
+    </div>
 
 <h1 id="return-equivalent-decision-processes">Return equivalent decision processes</h1>
 
 <p>​
 A sequence-Markov decision process (SDP) is defined as a decision process which is equipped with a Markov policy and has Markov transition probabilities but a reward that is not required to be Markov.
-Two SDPs \(\tilde{\mathcal{P}}\) and \(\mathcal{P}\) are return-equivalent if</p>
+Two SDPs \(\tilde{\mathcal{P}}\) and \(\mathcal{P}\) are <strong>return-equivalent</strong> if</p>
 
 <ul>
   <li>they differ only in their transition-reward distributions</li>
@@ -225,9 +237,9 @@ Two SDPs \(\tilde{\mathcal{P}}\) and \(\mathcal{P}\) are return-equivalent 
 <p>The <strong>return decomposition</strong> determines the contribution of each state-action pair to the return - the return is decomposed. The contribution of each state-action pair is the new reward and ensures a reward redistribution which leads to a new, return-equivalent MDP. The contribution is found by learning a function that predicts the return of each state-action sequence. Subsequently, this function helps to distribute the return over the sequence. Conceptually, this is done via <strong>contribution analysis</strong> where the contribution of each sequence element to the prediction of the return is determined. We look at how much the current input contributes to the final prediction and consider three contribution analysis methods, although in practice any contribution analysis method could be used:</p>
 
 <ul>
-  <li>“Differences in prediction”</li>
-  <li><a href="https://arxiv.org/pdf/1703.01365.pdf">Integrated gradients</a></li>
-  <li><a href="http://iphome.hhi.de/samek/pdf/BinICISA16.pdf">Layer-wise relevance propagation</a></li>
+  <li>“Differences in prediction’’</li>
+  <li><a href="https://arxiv.org/pdf/1703.01365.pdf"><strong>Integrated gradients</strong></a></li>
+  <li><a href="http://iphome.hhi.de/samek/pdf/BinICISA16.pdf"><strong>Layer-wise relevance propagation</strong></a></li>
 </ul>
 
 <p>We prefer differences in prediction, where the change in prediction from one timestep to the next is a measure of the contribution of an input to the final prediction.</p>
@@ -240,9 +252,17 @@ Two SDPs \(\tilde{\mathcal{P}}\) and \(\mathcal{P}\) are return-equivalent 
 
 <p>We define optimal return decomposition via the optimality condition that the expected future accumulated reward is always zero. As a consequence, the new SDP <strong>does not have delayed rewards</strong> and <strong>Q-value estimates are unbiased</strong>.</p>
 
-<h3 id="reward-redistribution-details">Reward redistribution (details):</h3>
-<p>​
-Reward redistribution is achieved by using a function \(g\) which predicts the return \(G\) at the end of the episode from the state action sequence and then using contribution analysis on \(g\). Contribution analysis computes the contribution of current input to the final output, that is the information gain by the current input on the final prediction. We use the individual contributions as the new reward in the new MDP. We show that this redistribution, as it is <em>return-equivalent</em> does not change the optimal policies.</p>
+<div class="a-container">
+      <div class="a-items">
+        <label for="a6">Reward redistribution (details):</label>
+        <input type="checkbox" name="sr" id="a6" hidden="" />
+        <div class="a-content">
+          
+          <p>Reward redistribution is achieved by using a function \(g\) which predicts the return \(G\) at the end of the episode from the state action sequence and then using contribution analysis on \(g\). Contribution analysis computes the contribution of current input to the final output, that is the information gain by the current input on the final prediction. We use the individual contributions as the new reward in the new MDP. We show that this redistribution, as it is <em>return-equivalent</em> does not change the optimal policies.</p>
+
+        </div>
+      </div>
+    </div>
 
 <p>​In the example task, an optimal return decomposition means that the whole reward is given after your decision in the beginning whether to repair a watch of a particular brand. This optimal return decomposition ensures that the expected future reward is zero. If some unforeseen events happen during delivery, the reward ledger is updated such that the expected future return stays zero.</p>
 
@@ -250,11 +270,11 @@ Reward redistribution is achieved by using a function \(g\) which predicts the
 
 <h1 id="rudder-vs-potential-based-reward-shaping">RUDDER vs potential-based reward shaping</h1>
 <p>​
-Reward shaping in the RL community is known via potential-based <a href="https://dl.acm.org/doi/10.5555/645528.657613">reward shaping</a>, <a href="https://dl.acm.org/doi/10.5555/3041838.3041938">look-ahead and look-back advice</a>. These methods use as new reward the original reward augmented by a shaping reward (\(\text{reward}^{new} = \text{reward}^{old} + \text{reward}^{original}\)). The shaping reward is obtain via potential function differences. In contrast, RUDDER constructs a completely new reward function, which substitutes the origin reward (\(\text{reward}^{new} = \text{reward}^{redistributed}\)). </p>
+Reward shaping in the RL community is known via potential-based <a href="https://dl.acm.org/doi/10.5555/645528.657613"><strong>reward shaping</strong></a>, <a href="https://dl.acm.org/doi/10.5555/3041838.3041938"><strong>look-ahead and look-back advice</strong></a>. These methods use as new reward the original reward augmented by a shaping reward (\(\text{reward}^{\text{new}} = \text{reward}^{\text{old}} + \text{reward}^{\text{original}}\)). The shaping reward is obtain via potential function differences. In contrast, RUDDER constructs a completely new reward function, which substitutes the origin reward (\(\text{reward}^{\text{new}} = \text{reward}^{\text{redistributed}}\)). </p>
 
 <p>​Redistributing the reward via reward shaping, look-ahead advice, and look-back advice is a special case of reward redistribution. We have shown that subtracting a constant from the potential function of the reward shaping methods makes the shaping rewards sum to zero (\(\sum_t \text{reward}_t^{\text{shaping}} = 0\)), while all potential differences (shaping rewards) are kept. Hence, the reward redistribution leads to new SDPs that are return-equivalent to the original MDP. However, since these reward shaping approaches keep the original reward, their reward redistribution does not correspond to an optimal return decomposition (no delayed rewards) and therefore, learning by TD can still be exponentially slow for the remaining delayed rewards. <strong>RUDDER is not potential-based reward shaping</strong>.</p>
 
-<p><img src="assets/envIV.png" align="right" width="350" /></p>
+<p><img src="assets/envIV.png" align="right" width="450" /></p>
 <p>&nbsp;</p>
 
 <p>The figure taken from the paper shows the comparison of RUDDER with reward shaping approaches. In detail, we compare RUDDER to Q-learning with eligibility traces, SARSA with eligibility traces, reward shaping (RS original), look-ahead advice (RS look-ahead), look-back advice (RS look-back). For each method, the learning time (in episodes) needed for solving the task versus the delay of the reward is plotted. The dashed blue line represents RUDDER applied on top of Q-learning with eligibility traces (RUDDER Q). In all cases, RUDDER is exponentially faster and outperforms reward shaping methods significantly.</p>
@@ -263,19 +283,19 @@ Reward shaping in the RL community is known via potential-based <a href="https
 <h1 id="lstm-in-rudder">LSTM in RUDDER</h1>
 <p><img src="assets/LSTM_FWD.svg_01.png" align="right" width="450" /></p>
 
-<p>​We have already seen that RUDDER detects key events and assigns credit to them when associated rewards are delayed. This way, relevant actions and states can be identified even if they occured much earlier than the reward. The identification is done by <strong>Deep Learning</strong> which excels at <strong>pattern recognition problems</strong>. Over the past years, the Long Short-Term Memory (<a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/#lstm-networks">LSTM</a>) has gained huge momentum in sequence analysis. For a nice introduction into Recurrent Neural Networks in general and the LSTM in particular have a closer look at <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrew Karpathy’s blog</a>. In RUDDER, an LSTM is the obvious choice for the return prediction function,  which allows for the return decomposition and is based on a state-action sequence. By analyzing the whole episode, LSTM detects the key events that correlate with the reward the most.</p>
+<p>​We have already seen that RUDDER detects key events and assigns credit to them when associated rewards are delayed. This way, relevant actions and states can be identified even if they occured much earlier than the reward. The identification is done by <strong>Deep Learning</strong> which excels at <strong>pattern recognition problems</strong>. Over the past years, the Long Short-Term Memory (<a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/#lstm-networks"><strong>LSTM</strong></a>) has gained huge momentum in sequence analysis. For a nice introduction into Recurrent Neural Networks in general and the LSTM in particular have a closer look at <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/"><strong>Andrew Karpathy’s blog</strong></a>. In RUDDER, an LSTM is the obvious choice for the return prediction function,  which allows for the return decomposition and is based on a state-action sequence. By analyzing the whole episode, LSTM detects the key events that correlate with the reward the most.</p>
 <p>&nbsp;</p>
 
+<p><img src="assets/LSTM_FWD_BWD_01.png" align="right" width="450" /></p>
 <h1 id="reward-redistribution-via-lstm">Reward redistribution via LSTM</h1>
-<p><img src="assets/LSTM_FWD_BWD_01.png" align="right" width="450" />
-When the LSTM detects the key events, a piece of information gets stored in LSTM’s memory. Then it is used for the prediction at the end. By analyzing LSTM’s memory, we can reconstruct these pieces of information and assign contributions of individual states-action pairs to the final reward prediction.</p>
+<p>When the LSTM detects the key events, a piece of information gets stored in LSTM’s memory. Then it is used for the prediction at the end. By analyzing LSTM’s memory, we can reconstruct these pieces of information and assign contributions of individual states-action pairs to the final reward prediction.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
 <h1 id="rudder-in-practice">RUDDER in practice</h1>
 <p><img src="assets/RUDDER_practise.png" align="right" width="450" />
-RUDDER’s novel learning algorithm is the direct estimation of \(Q\)-values. However, RUDDER can be combined with any RL algorithm by using the redistributed reward as a new reward. We prefer to use the direct \(Q\)-value estimation applied to <a href="https://towardsdatascience.com/policy-gradients-in-a-nutshell-8b72f9743c5d">policy gradient</a> algorithms, in particular PPO (see the excellent blogs of the <a href="https://openai.com/blog/openai-baselines-ppo/">authors</a> and <a href="https://medium.com/@jonathan_hui/rl-proximal-policy-optimization-ppo-explained-77f014ec3f12">Jonathan Hui</a>).</p>
+RUDDER’s novel learning algorithm is the direct estimation of \(Q\)-values. However, RUDDER can be combined with any RL algorithm by using the redistributed reward as a new reward. We prefer to use the direct \(Q\)-value estimation applied to <a href="https://towardsdatascience.com/policy-gradients-in-a-nutshell-8b72f9743c5d"><strong>policy gradient</strong></a> algorithms, in particular PPO (see the excellent blogs of the <a href="https://openai.com/blog/openai-baselines-ppo/"><strong>authors</strong></a> and <a href="https://medium.com/@jonathan_hui/rl-proximal-policy-optimization-ppo-explained-77f014ec3f12"><strong>Jonathan Hui</strong></a>).</p>
 
 <p>The LSTM uses the state-action sequence as input to predict the return. The learned LSTM model allows to perform return decomposition via a contribution analysis method. This return decomposition can be applied to any state-action sequence with an assigned return to redistribute the reward. This redistribution is even valid for state-action sequences that were obtained from a different policy than the policy on which LSTM was trained and on which the return decomposition was determined.</p>
 
@@ -283,8 +303,8 @@ RUDDER’s novel learning algorithm is the direct estimation of \(Q\)-values. Ho
 
 <div class="a-container">
       <div class="a-items">
-        <label for="a2">Will the LSTM use the whole sequence and not only the last state-action pair?</label>
-        <input type="checkbox" name="sr" id="a2" hidden="" />
+        <label for="a3">Will the LSTM use the whole sequence and not only the last state-action pair?</label>
+        <input type="checkbox" name="sr" id="a3" hidden="" />
         <div class="a-content">
           
           <p>For reward redistribution we assume an MDP with one reward (=return) at sequence end which can be predicted from the last state-action pair. We want to remove this Markov property to enforce the LSTM to store the relevant past events that caused the reward. This way, contribution analysis will identify these relevant past events and give reward to them. To eliminate this Markov property, we define a difference \(\Delta\) between a state-action pair and its predecessor, where the  \(\Delta\)s are assumed to be mutually independent from each other. Now, the reward at sequence end cannot be predicted from the last \(\Delta\). The return can still be predicted from the sequence of \(\Delta\)s. Since the  \(\Delta\)s are mutually independent, the contribution of each \(\Delta\) to the return must be stored in the hidden states of the LSTM to predict the final reward. The \(\Delta\) can be generic since states and actions can be numbered and then the difference of this numbers can be used for \(\Delta\). In the applications like Atari with immediate rewards we give the accumulated reward at the end of the episode without enriching the states. This has a similar effect as using \(\Delta\). We force the LSTM to build up an internal state which tracks the already accumulated reward.
@@ -296,8 +316,8 @@ Example: The agent has to take a key to open the door. Since it is an MDP, the a
 
 <div class="a-container">
       <div class="a-items">
-        <label for="a3">Is the LSTM a value function?</label>
-        <input type="checkbox" name="sr" id="a3" hidden="" />
+        <label for="a4">Is the LSTM a value function?</label>
+        <input type="checkbox" name="sr" id="a4" hidden="" />
         <div class="a-content">
           
           <p>The LSTM is the value function at time \(t\), but based on the \(\Delta\) sub-sequence up to \(t\). The LSTM prediction can be decomposed into two sub-predictions. The first sub-prediction is the contribution of the already known \(\Delta\) sub-sequence up to \(t\) to the return (backward view). The second sub-prediction is the expected contribution of the unknown future sequence from \(t+1\) onwards to the return (forward view). However, we are not interested in the second sub-prediction, but only in the contribution of \(Δ\) at time \(t\) to the prediction of the expected return. The second sub-prediction is irrelevant for our approach. We cancel the second sub-prediction via the differences of predictions. The difference at time \(t\) gives the contribution of \(\Delta\) at time \(t\) to the expected return.</p>
@@ -308,8 +328,8 @@ Example: The agent has to take a key to open the door. Since it is an MDP, the a
 
 <div class="a-container">
       <div class="a-items">
-        <label for="a4">Why not using the LSTM directly as a value function?</label>
-        <input type="checkbox" name="sr" id="a4" hidden="" />
+        <label for="a5">Why not using the LSTM directly as a value function?</label>
+        <input type="checkbox" name="sr" id="a5" hidden="" />
         <div class="a-content">
           
           <p>We started this research project with using LSTM as a value function, but we failed. We investigated LSTM as a value function for our example task (artificial task (II) in the paper). At the time point when RUDDER has already solved the task, the LSTM error was still too large to allow learning via a value function. The problem is the large variance of the returns at the beginning of the sequence which hinders LSTM learning (forward view). The LSTM learning was initiated by propagating back prediction errors at the sequence end, where the variance of the return is lower (backward view). These late predictions initiated the storing of key events at the sequence beginning even with high prediction errors. The redistributed reward at the key events led RUDDER solve the task. Concluding: at the time point when RUDDER has already solved the task, the early predictions are not learned due to the high variance of the returns. Therefore using the predictions as value function does not help (forward view).</p>
@@ -346,7 +366,7 @@ Example: The agent has to take a key to open the door. Since it is an MDP, the a
 
 <p>This blog post was written by Johannes Brandstetter: brandstetter[at]ml.jku.at</p>
 
-<p>Contributions by Jose Arjona-Medina, Michael Gillhofer, Michael Widrich, Vihang Patil, and Sepp Hochreiter.</p>
+<p>Contributions by Jose Arjona-Medina, Michael Gillhofer, Michael Widrich, Vihang Patil and Sepp Hochreiter.</p>
 
 
 
