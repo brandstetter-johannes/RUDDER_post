@@ -8,9 +8,9 @@ usemathjax: true
 
 <link rel="stylesheet" href="assets/css/accordion.css">
 
-Blogpost to [RUDDER: Return Decomposition for Delayed Rewards][arxiv-paper].
+Blog post to [RUDDER: Return Decomposition for Delayed Rewards][arxiv-paper].
 
-Recently, tasks with delayed rewards that required model-free reinforcement learning attracted a lot of attention via complex strategy games. For example, DeepMind currently focuses on the delayed reward games Capture the flag and [Starcraft][starcraft-paper], whereas Microsoft is putting up the [Marlo][Marlo-Challenge] environment, and Open AI announced its [Dota 2][Dota-blog] achievements. Mastering these games with delayed rewards using model-free reinforcement learning poses a great challenge and an almost insurmountable obstacle, see the excellent [Understanding OpenAI Five][Und-Dota-5] blog. Delayed rewards are very common as they typically appear in reinforcment learning (RL) tasks with episodic or sparse rewards. They impose a fundamental problem onto learning whose solution is a [long standing challenge in RL (abstract, p. vii)][sutton-thesis]. For complex real-world tasks, e.g. autonomous driving or controling smart cities, appropriate models are not available and difficult to learn and, thus, only model-free reinforcement learning is feasible.
+Recently, tasks with **delayed rewards** that required **model-free** reinforcement learning attracted a lot of attention via complex strategy games. For example, DeepMind currently focuses on the delayed reward games [**Capture the flag**][capture-the-flag] and [Starcraft][starcraft-paper], whereas Microsoft is putting up the [Marlo][Marlo-Challenge] environment, and Open AI announced its [Dota 2][Dota-blog] achievements. Mastering these games with delayed rewards using model-free reinforcement learning poses a great challenge and an almost insurmountable obstacle, see the excellent [Understanding OpenAI Five][Und-Dota-5] blog. Delayed rewards are very common as they typically appear in reinforcment learning (RL) tasks with episodic or sparse rewards. They impose a fundamental problem onto learning whose solution is a [long standing challenge in RL (abstract, p. vii)][sutton-thesis]. For complex real-world tasks, e.g. autonomous driving or controling smart cities, appropriate models are not available and difficult to learn and, thus, only model-free reinforcement learning is feasible.
 
 Via RUDDER, we introduce a novel model-free RL approach to overcome delayed reward problems. RUDDER directly and efficiently assigns credit to reward-causing state-action pairs and thereby speeds up learning in model-free reinforcement learning with delayed rewards dramatically.
 
@@ -272,13 +272,15 @@ The video below shows RUDDER at work in the delayed ATARI game **Bowling**. Here
 
 This blog post was written by Johannes Brandstetter: brandstetter[at]ml.jku.at
 
-Contributions by Jose Arjona-Medina, Michael Gillhofer, Michael Widrich, Vihang Patil, and Sepp Hochreiter.
+Contributions by Jose Arjona-Medina, Michael Gillhofer, Michael Widrich, Vihang Patil and Sepp Hochreiter.
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
 
+
 [arxiv-paper]: https://arxiv.org/abs/1806.07857
+[capture-the-flag]: https://deepmind.com/blog/article/capture-the-flag-science
 [starcraft-paper]: https://arxiv.org/abs/1708.04782v1
 [Marlo-Challenge]: https://www.crowdai.org/challenges/marlo-2018
 [Dota-blog]: https://blog.openai.com/openai-five/
